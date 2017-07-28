@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="signup" ng-app="signup">
+        <div class="form">
+            <form name="myForm" id="myform">
+                <div class="left" auto>
+                    <div class="one">
+                        <span class="input">
+            <input class="input_field input_field-text" name="name" id="name" type="text" maxlength="20" ng-model="form.name" autocomplete="off" required>
+            <label class="input_label input_label-text">
+			<span id="fname" class="input_label-content input_label-content-text"><font style="font-size:13px;font-style: italic bold;">FULL NAME</font></span>
+                        </label>
+                        </span>
+                        <p id="sname" ng-show="myForm.name.$error.required && myForm.name.$dirty">
+                            <font style="font-size:12px;color:red"><b>Required !</b></font>
+                        </p>
+                    </div>
+                    <div class="two">
+                        <span class="input">
+            <input class="input_field input_field-text" type="text" name="username" id="user" ng-model="form.username" ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" autocomplete="off" required />
+            <label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:13px;font-style: italic bold;">USER NAME</font></span>
+                        </label>
+                        </span>
+                        <p id="suser1" ng-show="!myForm.username.$error.required && (myForm.username.$error.minlength || myForm.username.$error.maxlength) && myForm.username.$dirty">
+                            <font style="font-size:12px;color:red"><b>Must be within 5 to 20 characters !</b></font>
+                        </p>
+
+                        <p id="suser11" ng-show="!myForm.username.$error.minLength && !myForm.username.$error.maxLength && myForm.username.$error.pattern && myForm.username.$dirty">
+                            <font style="font-size:12px;color:red"><b>Must have letters and number only !</b></font>
+                        </p>
+                    </div>
+                    <div class="three">
+                        <span class="input">
+            <input class="input_field input_field-text" ng-model="form.mail" type="email" name="email" id="email" autocomplete="off" required>
+                  <label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:13px;font-style: italic bold;">E-MAIL</font></span>
+                        </label>
+                        </span>
+                        <p id="smail" ng-show="!myForm.email.$error.required && myForm.email.$error.email && myForm.email.$dirty">
+                            <font style="font-size:12px;color:red"><b>Invalid Email !</b></font>
+                        </p>
+                    </div>
+                </div>
+                <div class="right" auto>
+                    <div class="four">
+                        <span class="input">
+                <input class="input_field input_field-text" type="password" name="password" id="pass1" ng-model="form.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
+                <label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:13px;font-style: italic bold;">CREATE PASSWORD</font></span>
+                        </label>
+                        </span>
+                        <p id="spass1" ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">
+                            <font style="font-size:12px;color:red"><b>Passwords must be between 8 and 20 characters. !</b></font>
+                        </p>
+                        <p id="spass11" ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && !myForm.password.$error.maxlength && myForm.password.$error.pattern && myForm.password.$dirty">
+                            <font style="font-size:12px;color:red"><b>Must contain one lower &amp; uppercase letter, and one non-alpha character !</b></font>
+                        </p>
+                    </div>
+
+                    <div class="five">
+                        <span class="input">
+            <input class="input_field input_field-text" type="password" name="password2" id="pass2" ng-model="form.password2" ng-pattern="form.password" required />
+             <label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:13px;font-style: italic bold;">CONFIRM PASSWORD</font></span>
+                        </label>
+                        </span>
+                        <p id="spass2" ng-show="form.password != form.password2">
+                            <font style="font-size:12px;color:red"><b>Your passwords must match !</b></font>
+                        </p>
+                    </div>
+                    <div class="six">
+                        <span class="input">
+                <input class="input_field input_field-text" ng-model="form.phone" type="tel" name="phone" id="phone" maxlength="10" ng-pattern="/^[789]\d{9}$/" autocomplete="off" required>
+                 <label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:13px;font-style: italic bold;">PHONE NUMBER</font></span>
+                        </label>
+                        </span>
+                        <p id="sphone" ng-show="!myForm.phone.$error.maxLength && myForm.phone.$error.pattern && myForm.phone.$dirty">
+                            <font style="font-size:12px;color:red"><b>Invalid Number !</b></font>
+                        </p>
+                    </div>
+                </div>
+                <div class="button2">
+                    <button data-toggle="dropdown" data-hover="click me!" ng-disabled="form.password != form.password2 || form.phone == null || form.name == null || form.username == null || form.mail == null" type="submit" id="submit" onclick="insert()"><div><font style="font-style:bold,italic">CREATE USER</font></div></button>
+                </div>
+                <div id="link">
+                    <a href="login.html">
+                        <font style="color:darkblue;font-size:12px"><strong><i>Already an user ? Login</i></strong></font>
+                    </a>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <script src="signup.js">
+    </script>
+</body>
+
+</html>

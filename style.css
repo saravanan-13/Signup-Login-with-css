@@ -1,0 +1,105 @@
+body {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: 500;
+    font-size: 1.05em;
+    font-family: sans-serif;
+}
+
+.login {
+    z-index: 3;
+    border: 1px solid;
+    padding-top: -15px;
+    padding-bottom: 30px;
+    padding-left: 90px;
+    padding-right: 40px;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 450px;
+    -webkit-animation: mymove 5s infinite;
+    animation: mymove 5s infinite;
+    box-shadow: 2px 2px 2px 2px #696969;
+}
+
+@-webkit-keyframes mymove {
+    50% {
+        border: 8px solid #696969;
+    }
+}
+
+.form {
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 40px;
+}
+
+.left {
+    float: left;
+    display: inline-block;
+    position: relative;
+    padding: 20px;
+    padding-right: 100px;
+}
+
+.right {
+    float: right;
+    display: inline-block;
+    position: relative;
+    padding: 20px;
+    padding-left: 80px;
+}
+
+#sname,
+#suser1,
+#suser11,
+#smail,
+#spass1,
+#spass11,
+#spass2,
+#sphone {
+    margin-top: -15px;
+    margin-bottom: 60px;
+    margin-left: 30px;
+}
+
+.button2 {
+    position: fixed;
+    margin-top: 480px;
+    margin-left: 250px;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six {
+    position: fixed;
+}
+
+.one,
+.four {
+    margin-bottom: 150px;
+}
+
+.two,
+.five {
+    margin-top: 150px;
+}
+
+.three,
+.six {
+    margin-top: 300px;
+}
+
+.four,
+.five,
+.six {
+    margin-left: -170px;
+}
+
+#link {
+    padding-top: 500px;
+    margin-left: 500px;
+}

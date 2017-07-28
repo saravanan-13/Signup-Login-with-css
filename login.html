@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LOGIN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <link rel="stylesheet" type="text/css" href="style.scss">
+</head>
+
+<body>
+
+    <div ng-app="signup" class="login">
+        <form name="myForm" id="myform">
+            <div class="username">
+                <span class="input">
+                    <input class="input_field input_field-text" type="text" name="username" id="user"  ng-model="form.username" autocomplete="off" required />
+					<label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:18px">USER NAME</font></span>
+                </label>
+                </span>
+            </div>
+            <div class="password">
+
+                <span class="input">
+                    <input class="input_field input_field-text" type="password" name="password" id="pass" ng-model="form.password" required  />
+					<label class="input_label input_label-text">
+						<span class="input_label-content input_label-content-text"><font style="font-size:18px">PASSWORD</font></span>
+                </label>
+                </span>
+
+            </div>
+            <div class="button">
+                <button data-hover="click me!" type="submit" id="btn" ng-disabled="form.username == null || form.password == null" onclick="verify()"><div><font style="font-style:bold,italic">LOG IN</font></div></button>
+            </div>
+            <div class="link">
+                <a href="Signup.html">
+                    <font style="color:darkblue;font-size:12px;"><b><i>New user ? SignUp</i></b></font>
+                </a>
+            </div>
+        </form>
+    </div>
+    <script src="signup.js">
+    </script>
+</body>
+
+</html>
